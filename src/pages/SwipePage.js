@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import heartLogo from '../images/Heart_Logo.png';
+import xLogo from '../images/CircleX.png'
 
 export const SwipePage = () => {
   // State variables for tracking movement and rotation
@@ -87,7 +89,12 @@ export const SwipePage = () => {
           transform: `translateX(${currentX}px) rotate(${rotation}deg)`,
           transition: !isDragging ? 'transform 0.3s ease-out' : 'none', // Smooth transition when releasing
         }}
-      ></div>
+      >
+        <div className="like-dislike-container">
+          <img src={xLogo} alt="Dislike" className="like-dislike"/>
+          <img src={heartLogo} alt="Love this" className="like-dislike"/>
+        </div>
+      </div>
     </div>
   );
 }
