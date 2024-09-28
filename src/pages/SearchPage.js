@@ -1,14 +1,40 @@
-import '../App.css';
+import React, { useState } from 'react';
 
+export function SearchPage() {
+  const [inputValue, setInputValue] = useState('');
 
-export const SearchPage = () => {
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:5000/?', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ input: inputValue }),
+      });
+
+      if (response.ok) {
+        console.log('Data successfully sent to the backend');
+      } else {
+        console.error('Error sending data to backend');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return(
-      <form id="form">
+      <form id="form" onSubmit={handleSubmit}>
         <input
+            type="text"
             placeholder="Search..."
-            aria-label="Search through site content"/>
-        <button>
+            aria-label="Search through site content"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}/>
+        <button type="submit">
           <svg viewBox="0 0 1024 1024"><path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>
         </button>
       </form>
