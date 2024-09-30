@@ -59,30 +59,6 @@ export const SwipePage = () => {
     }
   };
 
-  //automatically swipes the card right if the user clicks on the heart button
-  const handleHeartClick = () => {
-    setCurrentX(1000);
-    setRotation(20);
-    console.log("User Swiped Right");
-
-    setTimeout(() => {
-      setCurrentX(0);
-      setRotation(0);
-    }, 500);
-  };
-
-  //automatically swipes the card left if the user clicks on the x button
-  const handleXClick = () => {
-    setCurrentX(-1000);
-    setRotation(-20);
-    console.log("User Swiped Left");
-
-    setTimeout(() => {
-      setCurrentX(0);
-      setRotation(0);
-    }, 500);
-  };
-
   useEffect(() => {
     // Add event listeners for mouse/touch events
     const handleMouseMove = (e) => handleMove(e);
@@ -115,8 +91,8 @@ export const SwipePage = () => {
         }}
       >
         <div className="like-dislike-container">
-          <img src={xLogo} alt="Dislike" className="like-dislike" onClick={handleXClick}/>
-          <img src={heartLogo} alt="Love this" className="like-dislike" onClick={handleHeartClick}/>
+          <img src={xLogo} alt="Dislike" className="like-dislike"/>
+          <img src={heartLogo} alt="Love this" className="like-dislike"/>
         </div>
       </div>
     </div>

@@ -1,18 +1,23 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { SearchPage } from './pages/SearchPage.js';
-import { SwipePage } from './pages/SwipePage.js';
-import { NotFoundPage } from './pages/NotFoundPage.js';
+import { SearchPage } from './pages/SearchPage';
+import { SwipePage } from './pages/SwipePage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { WaitingPage } from './pages/Testing'
+import { SocketContext } from './App';
+import React, { useContext } from 'react';
+
 
 
 export const PageRoutes = () => {
 
+    const { isFirstUser } = useContext(SocketContext);
+
     return(
       <Router>
         <Routes>
-
-          <Route path="/" element={<SearchPage />} />
-
-          <Route path="/?" element={<SearchPage />} />
+         
+          //We want only the first user to be shown the search page
+          <Route path="/" element={isFirstUser ? <SearchPage /> : <WaitingPage />} />
           
           <Route path="/swipe" element={<SwipePage />} />
 
