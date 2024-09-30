@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sendInputToBackend } from "./SearchPageBackend.js";
 
 export function SearchPage() {
   const [inputValue, setInputValue] = useState('');
@@ -6,24 +7,7 @@ export function SearchPage() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch('http://localhost:5000/?', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ input: inputValue }),
-      });
-
-      if (response.ok) {
-        console.log('Data successfully sent to the backend');
-      } else {
-        console.error('Error sending data to backend');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    sendInputToBackend(inputValue);
   };
 
   return(
@@ -39,5 +23,6 @@ export function SearchPage() {
         </button>
       </form>
   );
+};
 
-}
+export default SearchPage;
