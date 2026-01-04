@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# What this app was
+Originally an app for the FA 2024 Semester at Virginia Tech. Picking it up as a hobby project to investigate real-time communication to several users via WebSocket API, and connecting users via "Rooms".
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2024 version of the project can be located in the archived-project branch.
 
-## Available Scripts
+# What this app will be
+To no surprise, the core idea of this app will remain constant: Help friends - or relationships - decide what to do. However, the architecture, and the way various operations are done will change drastically. The reason for this, is because CRA (Create React App) was deprecated in Feb 2025. React's maintainers suggest using a modern framework such as Next.js in collaboration with the React library, which is what this project will do.
 
-In the project directory, you can run:
+The app previously supported 1 user, if that. This app was never deployed to production, only working on localhost. Any engineer knows that once moved to prod, the build will likely crash. This app will be an online web application mimicing the "Rooms" architecture that Kahoot, a popular classroom question-and-answer collaboration game, supports. A host will be able to make a room, and several other users will be able to join that room.
 
-### `npm start`
+For the tech stack, we will be using the nextjs framework, which allows us to integrate the API directly into the app without having to create a separate program. To store game room information, there will be a data structure that keeps track of this information. For now, the data structure's state will remain in-memory on the server. In the future, to scale we will probably end up using something fancy like Redis which allows us to retain that in-memory storage for fast reads/writes, but also incremental writing to disk to maintain persistance. Connections and real-time communication will be handled by WebSockets.Testing will most likely be handled by Jest, and probably some other testing framework. This app will be hosted in Azure since it is free.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Development Schedule
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Since it is just me developing this application, there is no real timeline to have it finished, nor specific sprints to accomplish certain goals. Having a full time job along with grad school is taking up most of my time. Though, if I do have free time (and am not on-call) I will work on this project. If for some reason you are tracking this project, and want to work on a ticket, just submit a PR and I'll review it :) Keep in mind, I am too lazy to set up branch protection for this small project, so pls dont delete everything <3
 
-### `npm test`
+Also - I don't know tailwind well, but am forcing myself to use it this project. Apologies for styling.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Steps to Run Locally
+tbd
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
