@@ -17,5 +17,11 @@ Since it is just me developing this application, there is no real timeline to ha
 Also - I don't know tailwind well, but am forcing myself to use it this project. Apologies for styling.
 
 # Steps to Run Locally
-tbd
+1. Clone the repository
+2. cd into repository folder
+3. Run `npm run dev`
+
+Terminal window should look like this if done correctly:
+
+![Terminal Output Once Started Locally](./images/readme/appTerminalOutput.png)
 
